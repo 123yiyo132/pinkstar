@@ -1,0 +1,264 @@
+/* ==================== BODY GENERAL ==================== */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: #0c0c0c; /* fondo oscuro */
+  color: #f5f5f5; /* texto claro */
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  min-height: 40vh;
+  background: linear-gradient(135deg, #ff52b0, #a200ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-top: 15px;
+  opacity: 0.95;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* ==================== SECTION TITLES ==================== */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ff52b0;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #a200ff;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* ==================== PRODUCT CARDS ==================== */
+.product-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  border: none;
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.product-card img {
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  transition: transform 0.35s;
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 28px rgba(255, 82, 176, 0.6);
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+.product-card h5 {
+  margin-top: 12px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #ff52b0;
+  font-weight: 600;
+}
+
+/* ==================== BOTONES ==================== */
+.btn-pink {
+  background-color: #ff52b0;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-pink:hover {
+  background-color: #e03e8c;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 22px rgba(255,82,176,0.5);
+}
+
+.btn-ver {
+  background-color: #ff52b0;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-ver:hover {
+  background-color: #e03e8c;
+  transform: scale(1.05);
+}
+
+/* ==================== FILTROS ==================== */
+.filtro {
+  background: transparent;
+  border: 1px solid #ff52b0;
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 25px;
+  transition: all 0.3s;
+}
+
+.filtro.activo {
+  background: #ff52b0;
+  color: #fff;
+}
+
+/* ==================== INPUT BUSCADOR ==================== */
+input.search-input {
+  background: #1f1f1f !important;
+  color: #fff !important;
+  border: 1px solid #ff52b0 !important;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+}
+
+/* ==================== MODAL PRODUCTO ==================== */
+.modal-content {
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.modal-body img {
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* ==================== COLORES ==================== */
+.color-option {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.color-option.active {
+  border: 2px solid #ff52b0;
+  transform: scale(1.1);
+}
+
+/* ==================== TALLAS ==================== */
+.talla-option {
+  border: 1px solid #555;
+  background: transparent;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.talla-option:hover {
+  background: #ff52b0;
+  border-color: #ff52b0;
+}
+
+.talla-option.active {
+  background: #ff52b0;
+  border-color: #ff52b0;
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background-color: #0c0c0c !important;
+  border-bottom: 1px solid rgba(255,82,176,0.2);
+}
+
+.navbar-nav .nav-link {
+  color: #f5f5f5;
+  margin-left: 18px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff52b0 !important;
+  transform: scale(1.1);
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #ff52b0 !important;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* ==================== CONTACTO ==================== */
+#contacto {
+  background-color: #1f1f1f;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#contacto h3 {
+  color: #ff52b0;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+#contacto p {
+  margin: 6px 0;
+  font-size: 1.1rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .product-card h5 {
+    font-size: 1rem;
+  }
+  .product-card p {
+    font-size: 0.95rem;
+  }
+}

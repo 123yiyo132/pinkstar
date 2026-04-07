@@ -1,0 +1,101 @@
+body {
+  background: #111;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  color: #ff2e88;
+}
+
+.producto-card {
+  background: #b41919;
+  border: none;
+  transition: 0.3s;
+}
+
+.producto-card:hover {
+  transform: scale(1.05);
+}
+
+.producto-card img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.precio {
+  color: #ff2e88;
+  font-weight: bold;
+}
+
+.btn-ver {
+  background: #ff2e88;
+  color: white;
+  border: none;
+}
+
+.btn-ver:hover {
+  background: #ff5ca8;
+}
+
+.filtro {
+  background: transparent;
+  border: 1px solid #ff2e88;
+  color: white;
+}
+
+.filtro.activo {
+  background: #ff2e88;
+}
+
+input {
+  background: hsl(240, 7%, 97%) !important;
+  color: white !important;
+  border: 1px solid #ff2e88 !important;
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-pink {
+  background: linear-gradient(45deg, #ff4d6d, #ff758f);
+  border: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn-pink:hover {
+  transform: scale(1.05);
+}
+
+/* COLORES */
+.color-option {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.color-option.active {
+  border: 2px solid #ff4d6d;
+  transform: scale(1.1);
+}
+
+/* TALLAS */
+.talla-option {
+  border: 1px solid #555;
+  background: transparent;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.talla-option:hover {
+  background: #ff4d6d;
+}
+
+.talla-option.active {
+  background: #ff4d6d;
+  border-color: #ff4d6d;
+}

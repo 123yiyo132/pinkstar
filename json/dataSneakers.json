@@ -1,0 +1,60 @@
+[
+  {
+    "titulo": "Sneaker Rosa",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡25,000",
+    "categoria": "Mujer",
+    "imagen": "img/sneakers/1.jpg"
+  },
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  }
+  ,
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  },
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  },
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  },
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  },
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  },
+  {
+    "titulo": "Sneaker Negra",
+    "descripcion": "Estilo urbano.",
+    "precio": "₡28,000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/1.jpg"
+  }
+
+]

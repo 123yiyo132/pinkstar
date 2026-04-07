@@ -1,0 +1,134 @@
+/* -------------------- GLOBAL -------------------- */
+body {
+  background: #111;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* TITULOS */
+h2 {
+  color: #ff2e88;
+  margin-bottom: 20px;
+}
+
+/* GRID DE PRODUCTOS */
+.producto-card {
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.producto-card:hover {
+  transform: scale(1.05);
+}
+
+.producto-card img {
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid #ff2e88;
+}
+
+.precio {
+  color: #ff2e88;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* BOTONES */
+.btn-ver {
+  background: #ff2e88;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-ver:hover {
+  background: #ff5ca8;
+  transform: scale(1.05);
+}
+
+/* FILTROS */
+.filtro {
+  background: transparent;
+  border: 1px solid #ff2e88;
+  color: white;
+  transition: 0.3s;
+}
+
+.filtro:hover {
+  background: #ff2e88;
+  color: white;
+}
+
+.filtro.activo {
+  background: #ff2e88;
+  color: white;
+}
+
+/* INPUT BUSCADOR */
+input {
+  background: #1c1c1c !important;
+  color: white !important;
+  border: 1px solid #ff2e88 !important;
+  border-radius: 8px;
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-pink {
+  background: linear-gradient(45deg, #ff4d6d, #ff758f);
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-pink:hover {
+  transform: scale(1.05);
+}
+
+/* COLORES DEL MODAL */
+.color-option {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.color-option.active {
+  border: 2px solid #ff4d6d;
+  transform: scale(1.1);
+}
+
+/* TALLAS DEL MODAL */
+.talla-option {
+  border: 1px solid #555;
+  background: transparent;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.talla-option:hover {
+  background: #ffffff;
+}
+
+.talla-option.active {
+  background: #ff4d6d;
+  border-color: #ffffff;
+  color: white;
+}
+
+/* HOVER GENERAL */
+.producto-card button {
+  transition: 0.3s;
+}
+
+.producto-card button:hover {
+  transform: scale(1.05);
+}
