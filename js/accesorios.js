@@ -9,7 +9,7 @@ const tallasContainer = document.getElementById("tallasContainer");
 const btnAgregar = document.getElementById("btnAgregarCarrito");
 
 // ================== CARGAR JSON ==================
-fetch("json/dataAccesorios.json")
+fetch("/json/dataAccesorios.json")
   .then(res => res.json())
   .then(data => {
     productos = data;
