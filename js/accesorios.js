@@ -2,6 +2,7 @@ let productos = [];
 let productosFiltrados = [];
 let productoSeleccionado = null;
 
+// ELEMENTOS
 const grid = document.getElementById("productosGrid");
 const buscarInput = document.getElementById("buscarInput");
 const botonesFiltro = document.querySelectorAll(".filtro");
@@ -12,14 +13,22 @@ const btnAgregar = document.getElementById("btnAgregarCarrito");
 fetch("/json/dataAccesorios.json")
   .then(res => res.json())
   .then(data => {
+    console.log("DATA CARGADA:", data);
+
     productos = data;
     productosFiltrados = data;
-    mostrarProductos(productos);
+
+    mostrarProductos(productosFiltrados);
   })
   .catch(err => console.error("Error cargando accesorios:", err));
 
-// ================== MOSTRAR ==================
+// ================== MOSTRAR PRODUCTOS ==================
 function mostrarProductos(lista) {
+  if (!grid) {
+    console.error("No existe #productosGrid en el HTML");
+    return;
+  }
+
   grid.innerHTML = "";
 
   lista.forEach(prod => {
@@ -27,7 +36,7 @@ function mostrarProductos(lista) {
       <div class="col-md-6 col-lg-3">
         <div class="card producto-card shadow-sm h-100">
 
-          <img src="${prod.imagen}" class="card-img-top">
+          <img src="${prod.imagen}" class="card-img-top" alt="${prod.titulo}">
 
           <div class="card-body text-center d-flex flex-column">
 
@@ -37,7 +46,7 @@ function mostrarProductos(lista) {
 
             <p class="text-success fw-bold">₡${prod.precio}</p>
 
-            <button class="btn btn-ver mt-auto"
+            <button class="btn btn-primary mt-auto"
               onclick="verProducto('${prod.titulo}')">
               Ver más
             </button>
@@ -51,8 +60,9 @@ function mostrarProductos(lista) {
 
 // ================== VER PRODUCTO ==================
 function verProducto(titulo) {
-
   productoSeleccionado = productos.find(p => p.titulo === titulo);
+
+  if (!productoSeleccionado) return;
 
   document.getElementById("modalTitulo").innerText = productoSeleccionado.titulo;
   document.getElementById("modalImagen").src = productoSeleccionado.imagen;
@@ -63,21 +73,23 @@ function verProducto(titulo) {
   // TALLAS
   tallasContainer.innerHTML = "";
 
-  productoSeleccionado.tallas.forEach(talla => {
-    const btn = document.createElement("button");
-    btn.className = "btn btn-outline-light talla-option";
-    btn.innerText = talla;
+  if (productoSeleccionado.tallas) {
+    productoSeleccionado.tallas.forEach(talla => {
+      const btn = document.createElement("button");
+      btn.className = "btn btn-outline-light talla-option";
+      btn.innerText = talla;
 
-    btn.onclick = () => {
-      document.querySelectorAll(".talla-option")
-        .forEach(b => b.classList.remove("active"));
+      btn.onclick = () => {
+        document.querySelectorAll(".talla-option")
+          .forEach(b => b.classList.remove("active"));
 
-      btn.classList.add("active");
-      btnAgregar.disabled = false;
-    };
+        btn.classList.add("active");
+        btnAgregar.disabled = false;
+      };
 
-    tallasContainer.appendChild(btn);
-  });
+      tallasContainer.appendChild(btn);
+    });
+  }
 
   btnAgregar.disabled = true;
 
@@ -86,7 +98,6 @@ function verProducto(titulo) {
 
 // ================== AGREGAR AL CARRITO ==================
 function agregarConOpciones() {
-
   if (!productoSeleccionado) return;
 
   const talla = document.querySelector(".talla-option.active");
@@ -127,11 +138,11 @@ botonesFiltro.forEach(btn => {
 
     btn.classList.add("activo");
 
-    const filtro = btn.innerText;
+    const categoria = btn.dataset.categoria;
 
-    productosFiltrados = (filtro === "Todos")
+    productosFiltrados = (categoria === "Todos")
       ? productos
-      : productos.filter(p => p.estilo === filtro);
+      : productos.filter(p => p.estilo === categoria);
 
     mostrarProductos(productosFiltrados);
   });
@@ -139,7 +150,6 @@ botonesFiltro.forEach(btn => {
 
 // ================== BUSCADOR ==================
 buscarInput.addEventListener("input", () => {
-
   const text = buscarInput.value.toLowerCase();
 
   const filtrados = productosFiltrados.filter(p =>
