@@ -1,60 +1,64 @@
 [
   {
-    "titulo": "Sneaker Rosa",
+    "titulo": "Balenciagas Runner",
     "descripcion": "Cómoda y moderna.",
-    "precio": "₡25,000",
+    "precio": "₡75000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/Balenciagas Runner black-Red.jpeg"
+  },
+ {
+    "titulo": "Balenciagas Runner",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡75000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/Balenciagas Runner Blacklight.jpeg"
+  },
+ {
+    "titulo": "Balenciagas Runner",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡75000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/Balenciagas Runner white.jpeg"
+  },
+ {
+    "titulo": "Balenciagas Runner",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡75000",
+    "categoria": "Hombre",
+    "imagen": "img/sneakers/Balenciagas Runner.jpeg"
+  },
+ {
+    "titulo": "Margiela future Blanco",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡45000",
     "categoria": "Mujer",
-    "imagen": "img/sneakers/1.jpg"
+    "imagen": "img/sneakers/Margiela future Blanco.jpeg"
   },
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
-    "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
+ {
+    "titulo": "Margiela future Negra",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡45000",
+    "categoria": "Mujer",
+    "imagen": "img/sneakers/Margiela future Negra.jpeg"
+  },
+ {
+    "titulo": "Margiela future Rojo",
+    "descripcion": "Cómoda y moderna.",
+    "precio": "₡45000",
+    "categoria": "Mujer",
+    "imagen": "img/sneakers/Margiela future Rojo.jpeg"
   }
-  ,
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
+,
+ {
+    "titulo": "Prueba",
+    "descripcion": "nhadsofoiadsf",
+    "precio": "1000",
     "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
-  },
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
-    "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
-  },
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
-    "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
-  },
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
-    "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
-  },
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
-    "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
-  },
-  {
-    "titulo": "Sneaker Negra",
-    "descripcion": "Estilo urbano.",
-    "precio": "₡28,000",
-    "categoria": "Hombre",
-    "imagen": "img/sneakers/1.jpg"
+    "imagen": "img/sneakers/prueba.jpg"
   }
-
+  
 ]
+
+
+
+

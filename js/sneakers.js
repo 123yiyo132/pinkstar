@@ -1,33 +1,59 @@
 let productos = [];
+let productosFiltrados = [];
+let productoActivo = null;
 
 const grid = document.getElementById("productosGrid");
 
-fetch("json/dataSneakers.json")
-  .then(res => res.json())
-  .then(data => {
-    productos = data;
-    mostrarProductos(productos);
-  })
-  .catch(err => console.error("Error cargando productos:", err));
+// =======================
+// CARGAR PRODUCTOS
+// =======================
+async function cargarProductos() {
+  try {
+    grid.innerHTML = `<p class="text-muted text-center">Cargando productos...</p>`;
 
-function mostrarProductos(lista) {
-  grid.innerHTML = "";
-  if (lista.length === 0) {
-    grid.innerHTML = `<p class="text-center text-muted">No se encontraron productos.</p>`;
-    return;
+    const res = await fetch("json/dataSneakers.json");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+
+    const data = await res.json();
+
+    productos = Array.isArray(data)
+      ? data.filter(p => p?.titulo && p?.precio && p?.imagen)
+      : [];
+
+    productosFiltrados = [...productos];
+
+    render(productosFiltrados);
+
+  } catch (err) {
+    console.error(err);
+    grid.innerHTML = `<p class="text-danger text-center">Error cargando productos</p>`;
   }
+}
 
-  lista.forEach((prod, index) => {
+// =======================
+// RENDER
+// =======================
+function render(list) {
+  grid.innerHTML = "";
+
+  list.forEach((prod) => {
     grid.innerHTML += `
       <div class="col-md-6 col-lg-3">
-        <div class="card shadow-sm h-100">
-          <img src="${prod.imagen}" class="card-img-top" alt="${prod.titulo}">
+        <div class="card producto-card h-100">
+
+          <img src="${prod.imagen}" loading="lazy">
+
           <div class="card-body text-center d-flex flex-column">
-            <h5 class="fw-bold">${prod.titulo}</h5>
-            <p class="text-pink fw-semibold">${prod.precio}</p>
-            <div class="mt-auto">
-              <button class="btn btn-ver btn-sm" onclick="verProducto(${index})">Ver más</button>
-            </div>
+
+            <h5>${prod.titulo}</h5>
+
+            <p class="precio">${prod.precio}</p>
+
+            <button class="btn btn-ver mt-auto"
+              onclick="verProducto('${prod.titulo}')">
+              Ver más
+            </button>
+
           </div>
         </div>
       </div>
@@ -35,44 +61,98 @@ function mostrarProductos(lista) {
   });
 }
 
-function verProducto(indice) {
-  const prod = productos[indice];
-  document.getElementById("modalTitulo").innerText = prod.titulo;
-  document.getElementById("modalImagen").src = prod.imagen;
-  document.getElementById("modalDescripcion").innerText = prod.descripcion;
+// =======================
+// VER PRODUCTO
+// =======================
+function verProducto(titulo) {
 
-  const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
-  modal.show();
+  productoActivo = productos.find(p => p.titulo === titulo);
+  if (!productoActivo) return;
+
+  document.getElementById("modalTitulo").innerText = productoActivo.titulo;
+  document.getElementById("modalImagen").src = productoActivo.imagen;
+  document.getElementById("modalDescripcion").innerText = productoActivo.descripcion || "";
+  document.getElementById("modalPrecio").innerText = productoActivo.precio;
+
+  reset();
+
+  new bootstrap.Modal(document.getElementById("modalProducto")).show();
 }
 
+// =======================
+// RESET
+// =======================
+function reset() {
+  document.querySelectorAll(".talla-option").forEach(b => b.classList.remove("active"));
+  tallaSeleccionada = null;
+}
 
-let colorSeleccionado = null;
+// =======================
+// TALLA
+// =======================
 let tallaSeleccionada = null;
 
-// Selección de color
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("color-option")) {
-    document.querySelectorAll(".color-option").forEach(btn => btn.classList.remove("active"));
-    e.target.classList.add("active");
-    colorSeleccionado = e.target.dataset.color;
-  }
-
+document.addEventListener("click", (e) => {
   if (e.target.classList.contains("talla-option")) {
-    document.querySelectorAll(".talla-option").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll(".talla-option").forEach(b => b.classList.remove("active"));
     e.target.classList.add("active");
     tallaSeleccionada = e.target.textContent;
   }
 });
 
-// Agregar con opciones
+// =======================
+// AGREGAR AL CARRITO
+// =======================
 function agregarConOpciones() {
-  if (!colorSeleccionado || !tallaSeleccionada) {
-    alert("Seleccione talla y color");
-    return;
-  }
 
-  console.log("Color:", colorSeleccionado);
-  console.log("Talla:", tallaSeleccionada);
+  if (!productoActivo) return alert("No hay producto");
 
-  // aquí puedes integrarlo con tu carrito
+  if (!tallaSeleccionada) return alert("Selecciona talla");
+
+  addToCart({
+    nombre: productoActivo.titulo,
+    imagen: productoActivo.imagen,
+    precio: productoActivo.precio,
+    talla: tallaSeleccionada
+  });
+
+  bootstrap.Modal.getInstance(document.getElementById("modalProducto"))?.hide();
 }
+
+// =======================
+// FILTROS
+// =======================
+document.querySelectorAll(".filtro").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    document.querySelectorAll(".filtro").forEach(b => b.classList.remove("activo"));
+    btn.classList.add("activo");
+
+    const filtro = btn.textContent.trim();
+
+    productosFiltrados = filtro === "Todos"
+      ? [...productos]
+      : productos.filter(p => p.categoria === filtro);
+
+    render(productosFiltrados);
+  });
+});
+
+// =======================
+// BUSCADOR
+// =======================
+document.getElementById("buscarInput").addEventListener("input", (e) => {
+
+  const text = e.target.value.toLowerCase();
+
+  render(productosFiltrados.filter(p =>
+    p.titulo.toLowerCase().includes(text)
+  ));
+});
+
+// =======================
+// INIT
+// =======================
+cargarProductos();
+window.verProducto = verProducto;
+window.agregarConOpciones = agregarConOpciones;

@@ -1,52 +1,38 @@
 [
   {
     "titulo": "Oversized Black Tee",
-    "precio": "₡18,000",
+    "precio": 18000,
     "categoria": "Hombre",
+    "estilo": "Oversized",
     "imagen": "img/camisas/1.jpg",
     "descripcion": "Camiseta oversized negra con estilo urbano moderno.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
     "tallas": ["S", "M", "L", "XL"]
   },
   {
     "titulo": "Pink Street Tee",
-    "precio": "₡20,000",
+    "precio": 20000,
     "categoria": "Mujer",
+    "estilo": "Street Style",
     "imagen": "img/camisas/1.jpg",
     "descripcion": "Camiseta rosada con diseño streetwear.",
-    "colores": [
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Blanco", "hex": "#ffffff"}
-    ],
     "tallas": ["XS", "S", "M", "L"]
   },
   {
     "titulo": "Basic White Tee",
-    "precio": "₡15,000",
+    "precio": 15000,
     "categoria": "Hombre",
+    "estilo": "Minimalistas",
     "imagen": "img/camisas/1.jpg",
     "descripcion": "Camiseta blanca básica, perfecta para cualquier outfit.",
-    "colores": [
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Negro", "hex": "#000000"}
-    ],
     "tallas": ["S", "M", "L", "XL", "XXL"]
   },
   {
     "titulo": "Graphic Urban Tee",
-    "precio": "₡22,000",
+    "precio": 22000,
     "categoria": "Mujer",
+    "estilo": "Graphic Tees",
     "imagen": "img/camisas/1.jpg",
     "descripcion": "Camiseta con diseño gráfico urbano premium.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
     "tallas": ["S", "M", "L"]
   }
 ]

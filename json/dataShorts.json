@@ -1,52 +1,34 @@
 [
   {
-    "titulo": "Oversized Black Tee",
-    "precio": "₡18,000",
-    "categoria": "Hombre",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta oversized negra con estilo urbano moderno.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
+    "titulo": "Cargo Street Shorts",
+    "precio": 18000,
+    "estilo": "Cargo",
+    "imagen": "img/shorts/prueba.jpg",
+    "descripcion": "Short cargo con bolsillos estilo urbano.",
     "tallas": ["S", "M", "L", "XL"]
   },
   {
-    "titulo": "Pink Street Tee",
-    "precio": "₡20,000",
-    "categoria": "Mujer",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta rosada con diseño streetwear.",
-    "colores": [
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Blanco", "hex": "#ffffff"}
-    ],
-    "tallas": ["XS", "S", "M", "L"]
+    "titulo": "Basketball Oversized Shorts",
+    "precio": 20000,
+    "estilo": "Basketball Shorts",
+    "imagen": "img/shorts/prueba.jpg",
+    "descripcion": "Short deportivo estilo baloncesto streetwear.",
+    "tallas": ["S", "M", "L", "XL"]
   },
   {
-    "titulo": "Basic White Tee",
-    "precio": "₡15,000",
-    "categoria": "Hombre",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta blanca básica, perfecta para cualquier outfit.",
-    "colores": [
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Negro", "hex": "#000000"}
-    ],
-    "tallas": ["S", "M", "L", "XL", "XXL"]
+    "titulo": "Denim Blue Shorts",
+    "precio": 19000,
+    "estilo": "Denim Shorts",
+    "imagen": "img/shorts/prueba.jpg",
+    "descripcion": "Short de mezclilla estilo clásico urbano.",
+    "tallas": ["28", "30", "32", "34"]
   },
   {
-    "titulo": "Graphic Urban Tee",
-    "precio": "₡22,000",
-    "categoria": "Mujer",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta con diseño gráfico urbano premium.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
-    "tallas": ["S", "M", "L"]
+    "titulo": "Techwear Black Shorts",
+    "precio": 22000,
+    "estilo": "Techwear",
+    "imagen": "img/shorts/prueba.jpg",
+    "descripcion": "Short futurista estilo techwear negro.",
+    "tallas": ["S", "M", "L", "XL"]
   }
 ]

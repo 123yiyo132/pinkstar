@@ -1,52 +1,34 @@
 [
   {
-    "titulo": "Oversized Black Tee",
-    "precio": "₡18,000",
-    "categoria": "Hombre",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta oversized negra con estilo urbano moderno.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
+    "titulo": "Oversized Black Hoodie",
+    "precio": 25000,
+    "estilo": "Oversized",
+    "imagen": "img/hoodies/prueba.jpg",
+    "descripcion": "Hoodie oversized negro estilo streetwear.",
     "tallas": ["S", "M", "L", "XL"]
   },
   {
-    "titulo": "Pink Street Tee",
-    "precio": "₡20,000",
-    "categoria": "Mujer",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta rosada con diseño streetwear.",
-    "colores": [
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Blanco", "hex": "#ffffff"}
-    ],
-    "tallas": ["XS", "S", "M", "L"]
+    "titulo": "Graphic Flame Hoodie",
+    "precio": 27000,
+    "estilo": "Graphic Hoodie",
+    "imagen": "img/hoodies/prueba.jpg",
+    "descripcion": "Hoodie con diseño gráfico de fuego.",
+    "tallas": ["S", "M", "L", "XL"]
   },
   {
-    "titulo": "Basic White Tee",
-    "precio": "₡15,000",
-    "categoria": "Hombre",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta blanca básica, perfecta para cualquier outfit.",
-    "colores": [
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Negro", "hex": "#000000"}
-    ],
-    "tallas": ["S", "M", "L", "XL", "XXL"]
+    "titulo": "Minimal Grey Hoodie",
+    "precio": 22000,
+    "estilo": "Minimalistas",
+    "imagen": "img/hoodies/prueba.jpg",
+    "descripcion": "Hoodie gris limpio y minimalista.",
+    "tallas": ["S", "M", "L", "XL"]
   },
   {
-    "titulo": "Graphic Urban Tee",
-    "precio": "₡22,000",
-    "categoria": "Mujer",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta con diseño gráfico urbano premium.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
-    "tallas": ["S", "M", "L"]
+    "titulo": "Techwear Hoodie Black",
+    "precio": 30000,
+    "estilo": "Techwear",
+    "imagen": "img/hoodies/prueba.jpg",
+    "descripcion": "Hoodie techwear con diseño futurista.",
+    "tallas": ["S", "M", "L", "XL"]
   }
 ]

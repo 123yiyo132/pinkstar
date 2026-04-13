@@ -1,52 +1,34 @@
 [
   {
-    "titulo": "Oversized Black Tee",
-    "precio": "₡18,000",
-    "categoria": "Hombre",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta oversized negra con estilo urbano moderno.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
-    "tallas": ["S", "M", "L", "XL"]
-  },
-  {
-    "titulo": "Pink Street Tee",
-    "precio": "₡20,000",
-    "categoria": "Mujer",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta rosada con diseño streetwear.",
-    "colores": [
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Blanco", "hex": "#ffffff"}
-    ],
-    "tallas": ["XS", "S", "M", "L"]
-  },
-  {
-    "titulo": "Basic White Tee",
-    "precio": "₡15,000",
-    "categoria": "Hombre",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta blanca básica, perfecta para cualquier outfit.",
-    "colores": [
-      {"nombre": "Blanco", "hex": "#ffffff"},
-      {"nombre": "Negro", "hex": "#000000"}
-    ],
-    "tallas": ["S", "M", "L", "XL", "XXL"]
-  },
-  {
-    "titulo": "Graphic Urban Tee",
-    "precio": "₡22,000",
-    "categoria": "Mujer",
-    "imagen": "img/camisas/1.jpg",
-    "descripcion": "Camiseta con diseño gráfico urbano premium.",
-    "colores": [
-      {"nombre": "Negro", "hex": "#000000"},
-      {"nombre": "Rosa", "hex": "#ff69b4"},
-      {"nombre": "Gris", "hex": "#808080"}
-    ],
+    "titulo": "Black Street Cap",
+    "precio": 12000,
+    "estilo": "Caps",
+    "imagen": "img/accesorios/prueba.jpg",
+    "descripcion": "Gorra negra estilo streetwear minimalista.",
     "tallas": ["S", "M", "L"]
+  },
+  {
+    "titulo": "Silver Chain Necklace",
+    "precio": 15000,
+    "estilo": "Chains",
+    "imagen": "img/accesorios/prueba.jpg",
+    "descripcion": "Cadena plateada estilo urbano premium.",
+    "tallas": ["Única"]
+  },
+  {
+    "titulo": "Urban Backpack Black",
+    "precio": 20000,
+    "estilo": "Bags",
+    "imagen": "img/accesorios/prueba.jpg",
+    "descripcion": "Mochila negra estilo techwear resistente.",
+    "tallas": ["Única"]
+  },
+  {
+    "titulo": "Minimal Sunglasses",
+    "precio": 10000,
+    "estilo": "Sunglasses",
+    "imagen": "img/accesorios/prueba.jpg",
+    "descripcion": "Lentes minimalistas estilo moderno.",
+    "tallas": ["Única"]
   }
 ]

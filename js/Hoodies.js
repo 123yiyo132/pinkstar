@@ -1,43 +1,52 @@
-// ================== VARIABLES ==================
 let productos = [];
-let carrito = [];
+let productosFiltrados = [];
 let productoSeleccionado = null;
 
 const grid = document.getElementById("productosGrid");
 const buscarInput = document.getElementById("buscarInput");
 const botonesFiltro = document.querySelectorAll(".filtro");
-const coloresContainer = document.getElementById("coloresContainer");
 const tallasContainer = document.getElementById("tallasContainer");
-const agregarCarritoBtn = document.getElementById("agregarCarritoBtn");
+const agregarBtn = document.getElementById("btnAgregarCarrito");
 
 // ================== CARGAR JSON ==================
 fetch("json/dataHoodies.json")
   .then(res => res.json())
   .then(data => {
     productos = data;
+    productosFiltrados = data;
     mostrarProductos(productos);
   })
-  .catch(err => console.error("Error cargando productos:", err));
+  .catch(err => console.error("Error cargando hoodies:", err));
 
-// ================== FUNCIONES ==================
+// ================== MOSTRAR ==================
 function mostrarProductos(lista) {
   grid.innerHTML = "";
-  if(lista.length === 0) {
-    grid.innerHTML = `<p class="text-center text-muted">No se encontraron productos.</p>`;
+
+  if (lista.length === 0) {
+    grid.innerHTML = `<p class="text-center text-muted">No hay productos</p>`;
     return;
   }
 
-  lista.forEach((prod, index) => {
+  lista.forEach((prod) => {
     grid.innerHTML += `
       <div class="col-md-6 col-lg-3">
-        <div class="card producto-card shadow-sm h-100" onclick="verProducto(${index})">
-          <img src="${prod.imagen}" alt="${prod.titulo}" class="card-img-top">
+        <div class="card producto-card shadow-sm h-100">
+
+          <img src="${prod.imagen}" class="card-img-top">
+
           <div class="card-body text-center d-flex flex-column">
+
+            <span class="badge bg-primary mb-1">${prod.estilo}</span>
+
             <h5>${prod.titulo}</h5>
-            <p>${prod.precio}</p>
-            <div class="mt-auto">
-              <button class="btn btn-ver w-100">Ver más</button>
-            </div>
+
+            <p class="text-success fw-bold">₡${prod.precio}</p>
+
+            <button class="btn btn-ver mt-auto"
+              onclick="verProducto('${prod.titulo}')">
+              Ver más
+            </button>
+
           </div>
         </div>
       </div>
@@ -45,76 +54,100 @@ function mostrarProductos(lista) {
   });
 }
 
-function verProducto(indice) {
-  productoSeleccionado = productos[indice];
+// ================== VER PRODUCTO ==================
+function verProducto(titulo) {
+
+  productoSeleccionado = productos.find(p => p.titulo === titulo);
+
   document.getElementById("modalTitulo").innerText = productoSeleccionado.titulo;
   document.getElementById("modalImagen").src = productoSeleccionado.imagen;
   document.getElementById("modalDescripcion").innerText = productoSeleccionado.descripcion;
 
-  // COLORES
-  coloresContainer.innerHTML = "";
-  productoSeleccionado.colores.forEach((color, i) => {
-    const btn = document.createElement("button");
-    btn.className = "color-option" + (i===0?" active":"");
-    btn.style.background = color.hex;
-    btn.dataset.color = color.nombre;
-    btn.addEventListener("click", () => seleccionarColor(btn));
-    coloresContainer.appendChild(btn);
-  });
+  agregarBtn.disabled = true;
 
   // TALLAS
   tallasContainer.innerHTML = "";
-  productoSeleccionado.tallas.forEach((talla, i) => {
+
+  productoSeleccionado.tallas.forEach(talla => {
     const btn = document.createElement("button");
-    btn.className = "talla-option" + (i===0?" active":"");
+    btn.className = "btn btn-outline-light talla-option";
     btn.innerText = talla;
-    btn.addEventListener("click", () => seleccionarTalla(btn));
+
+    btn.onclick = () => {
+      document.querySelectorAll(".talla-option")
+        .forEach(b => b.classList.remove("active"));
+
+      btn.classList.add("active");
+      agregarBtn.disabled = false;
+    };
+
     tallasContainer.appendChild(btn);
   });
 
-  const modal = new bootstrap.Modal(document.getElementById("modalProducto"));
-  modal.show();
+  new bootstrap.Modal(document.getElementById("modalProducto")).show();
 }
 
-function seleccionarColor(btn) {
-  coloresContainer.querySelectorAll(".color-option").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-}
-
-function seleccionarTalla(btn) {
-  tallasContainer.querySelectorAll(".talla-option").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-}
-
+// ================== AGREGAR AL CARRITO ==================
 function agregarConOpciones() {
-  if(!productoSeleccionado) return;
-  const color = coloresContainer.querySelector(".color-option.active").dataset.color;
-  const talla = tallasContainer.querySelector(".talla-option.active").innerText;
-  
-  // Crear producto con opciones
+
+  if (!productoSeleccionado) return;
+
+  const talla = document.querySelector(".talla-option.active");
+
+  if (!talla) {
+    alert("Selecciona una talla");
+    return;
+  }
+
   const item = {
-    producto: productoSeleccionado,
-    color,
-    talla,
+    nombre: productoSeleccionado.titulo,
+    imagen: productoSeleccionado.imagen,
+    precio: productoSeleccionado.precio,
+    talla: talla.innerText,
     cantidad: 1
   };
-  console.log("Agregado al carrito:", item);
-  alert(`Se agregó ${productoSeleccionado.titulo} (${color}, talla ${talla}) al carrito.`);
+
+  carrito.push(item);
+  saveCart();
+  updateBadge();
+  renderCart();
+
+  bootstrap.Modal.getInstance(
+    document.getElementById("modalProducto")
+  ).hide();
 }
+
+// GLOBAL
+window.verProducto = verProducto;
+window.agregarConOpciones = agregarConOpciones;
 
 // ================== FILTROS ==================
 botonesFiltro.forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelector(".filtro.activo").classList.remove("activo");
+
+    document.querySelectorAll(".filtro")
+      .forEach(b => b.classList.remove("activo"));
+
     btn.classList.add("activo");
-    const categoria = btn.dataset.categoria;
-    if(categoria === "Todos") mostrarProductos(productos);
-    else mostrarProductos(productos.filter(p => p.categoria === categoria));
+
+    const filtro = btn.dataset.categoria;
+
+    productosFiltrados = (filtro === "Todos")
+      ? productos
+      : productos.filter(p => p.estilo === filtro);
+
+    mostrarProductos(productosFiltrados);
   });
 });
 
 // ================== BUSCADOR ==================
-buscarInput.addEventListener("keyup", () => {
+buscarInput.addEventListener("input", () => {
+
   const texto = buscarInput.value.toLowerCase();
-  mostrarProductos(productos.filter(p => p.titulo.toLowerCase().includes(texto)));
+
+  const filtrados = productosFiltrados.filter(p =>
+    p.titulo.toLowerCase().includes(texto)
+  );
+
+  mostrarProductos(filtrados);
 });
